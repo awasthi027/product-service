@@ -12,6 +12,7 @@ public class ProductResponse {
     private String category;
     private Instant createdAt;
     private Instant updatedAt;
+    private Integer stock;
 
     public Long getId() {
         return id;
@@ -68,6 +69,9 @@ public class ProductResponse {
     public void setUpdatedAt(Instant updatedAt) {
         this.updatedAt = updatedAt;
     }
+    public Integer getStock() {return stock;}
+
+    public void setStock(Integer stock) {this.stock = stock; }
 }
 
 

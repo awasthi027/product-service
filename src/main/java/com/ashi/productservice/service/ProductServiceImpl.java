@@ -46,6 +46,7 @@ public class ProductServiceImpl implements ProductService {
         product.setDescription(request.getDescription());
         product.setPrice(request.getPrice());
         product.setCategory(request.getCategory());
+        product.setStock(request.getStock());
 
         Product updatedProduct = productRepository.save(product);
         return toResponse(updatedProduct);
@@ -86,6 +87,7 @@ public class ProductServiceImpl implements ProductService {
         product.setDescription(request.getDescription());
         product.setPrice(request.getPrice());
         product.setCategory(request.getCategory());
+        product.setStock(request.getStock());
         return product;
     }
 
@@ -96,6 +98,7 @@ public class ProductServiceImpl implements ProductService {
         response.setDescription(product.getDescription());
         response.setPrice(product.getPrice());
         response.setCategory(product.getCategory());
+        response.setStock(product.getStock());
         response.setCreatedAt(product.getCreatedAt());
         response.setUpdatedAt(product.getUpdatedAt());
         return response;

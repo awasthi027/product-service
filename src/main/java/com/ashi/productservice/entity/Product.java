@@ -32,11 +32,15 @@ public class Product {
     @Column(nullable = false)
     private String category;
 
+    @Column
+    private Integer stock;
+
     @Column(nullable = false, updatable = false)
     private Instant createdAt;
 
     @Column(nullable = false)
     private Instant updatedAt;
+
 
     @PrePersist
     public void prePersist() {
@@ -88,6 +92,14 @@ public class Product {
 
     public void setCategory(String category) {
         this.category = category;
+    }
+
+    public Integer getStock() {
+        return stock;
+    }
+
+    public void setStock(Integer stock) {
+        this.stock = stock;
     }
 
     public Instant getCreatedAt() {

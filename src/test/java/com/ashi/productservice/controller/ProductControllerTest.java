@@ -53,7 +53,8 @@ class ProductControllerTest {
                         .content(objectMapper.writeValueAsString(request)))
                 .andExpect(status().isCreated())
                 .andExpect(jsonPath("$.id").value(1))
-                .andExpect(jsonPath("$.name").value("iPhone 15"));
+                .andExpect(jsonPath("$.name").value("iPhone 15"))
+                .andExpect(jsonPath("$.stock").value(25));
     }
 
     @Test
@@ -122,6 +123,7 @@ class ProductControllerTest {
         request.setDescription("Latest Apple smartphone");
         request.setPrice(new BigDecimal("999.99"));
         request.setCategory("Electronics");
+        request.setStock(25);
         return request;
     }
 
@@ -132,6 +134,7 @@ class ProductControllerTest {
         response.setDescription("Latest Apple smartphone");
         response.setPrice(new BigDecimal("999.99"));
         response.setCategory("Electronics");
+        response.setStock(25);
         response.setCreatedAt(Instant.now());
         response.setUpdatedAt(Instant.now());
         return response;

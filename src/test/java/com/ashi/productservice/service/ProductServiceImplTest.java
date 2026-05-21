@@ -47,6 +47,7 @@ class ProductServiceImplTest {
         request.setDescription("M3 laptop");
         request.setPrice(new BigDecimal("2399.00"));
         request.setCategory("Electronics");
+        request.setStock(12);
     }
 
     @Test
@@ -65,6 +66,7 @@ class ProductServiceImplTest {
 
         assertEquals(11L, response.getId());
         assertEquals("MacBook Pro", response.getName());
+        assertEquals(12, response.getStock());
     }
 
     @Test
@@ -77,6 +79,7 @@ class ProductServiceImplTest {
 
         assertEquals(22L, response.getId());
         assertEquals("MacBook Pro", response.getName());
+        assertEquals(12, response.getStock());
         verify(productRepository).save(existing);
     }
 
@@ -117,6 +120,7 @@ class ProductServiceImplTest {
         product.setDescription("M3 laptop");
         product.setPrice(new BigDecimal("2399.00"));
         product.setCategory("Electronics");
+        product.setStock(12);
         product.prePersist();
         product.preUpdate();
         return product;
