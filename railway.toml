@@ -1,9 +1,9 @@
 [build]
 builder = "NIXPACKS"
-buildCommand = "mvn -DskipTests clean package"
+buildCommand = "mvn -DskipTests clean package && cp $(ls target/*.jar | grep -v \\.original | head -n 1) app.jar"
 
 [deploy]
-startCommand = "sh -c 'java -Dserver.port=$PORT -jar $(ls target/*.jar | grep -v \\.original | head -n 1)'"
+startCommand = "java -Dserver.port=$PORT -jar app.jar"
 restartPolicyType = "ON_FAILURE"
 restartPolicyMaxRetries = 10
 
