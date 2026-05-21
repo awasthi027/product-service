@@ -1,2 +1,2 @@
-web: java -Dserver.port=$PORT -jar target/product-service-0.0.1-SNAPSHOT.jar
+web: sh -c 'java -Dserver.port=$PORT -jar $(ls target/*.jar | grep -v \.original | head -n 1)'
 
