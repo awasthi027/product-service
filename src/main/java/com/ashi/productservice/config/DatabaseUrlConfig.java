@@ -13,6 +13,7 @@ import java.net.URISyntaxException;
 public class DatabaseUrlConfig {
 
     @Bean
+    @org.springframework.context.annotation.Primary
     public DataSourceProperties dataSourceProperties(Environment environment) {
         DataSourceProperties properties = new DataSourceProperties();
 
@@ -25,6 +26,9 @@ public class DatabaseUrlConfig {
         }
 
         String databaseUrl = environment.getProperty("DATABASE_URL");
+        if (!StringUtils.hasText(databaseUrl)) {
+            databaseUrl = System.getenv("DATABASE_URL");
+        }
         if (StringUtils.hasText(databaseUrl)) {
             DatabaseSettings settings = parseDatabaseUrl(databaseUrl);
             properties.setUrl(settings.url());

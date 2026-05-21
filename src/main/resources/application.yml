@@ -1,9 +1,5 @@
 spring:
-  datasource:
-    url: ${SPRING_DATASOURCE_URL:}
-    username: ${SPRING_DATASOURCE_USERNAME:}
-    password: ${SPRING_DATASOURCE_PASSWORD:}
-    driver-class-name: org.postgresql.Driver
+  # Datasource configured via DatabaseUrlConfig bean, reads DATABASE_URL env var
   jpa:
     hibernate:
       ddl-auto: update
